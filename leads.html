@@ -1,0 +1,227 @@
+<style>
+#leadspage .md-tabs-content .md-tab-content {
+height: auto; 
+}
+#leadspage .progressLineardemoBasicUsage md-progress-linear {
+padding-top: 0px;
+margin-bottom: 1px; } 
+#leadspage .inset {    
+padding-left: 25px; 
+padding-top: 25px; } 
+#leadspage md-toolbar {
+    min-height:34px;
+}
+#leadspage .md-toolbar-tools {
+    height:34px;  
+    min-height:34px;
+}
+</style>  
+<div id="leadspage" layout="row" layout-margin layout-fill layout-padding>
+<div  flex="13">
+    <md-card>  
+       <h3> Lead statuses</h3>
+     <md-list>
+      <md-item >
+        <md-item-content>
+          <div>
+            <p ng-repeat="status in leadStatuses">
+             <md-checkbox ng-model="status[0]" >
+              {{status[1]}}</md-checkbox> 
+            </p>
+          </div>
+    </md-item-content>
+      </md-item>
+    </md-list>
+    </md-card>   
+   <md-card>  
+      <h3>Global lists</h3>
+      <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+      </p>
+    </md-card> 
+    <md-card>
+      <h3>My Lists</h3>
+      <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+      </p> 
+    </md-card>  
+    <md-card>
+      <h3>Recent Items</h3>
+      <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+      </p> 
+</md-card> 
+</div>  
+<div flex="80" layout="column"> 
+   <div class="row">
+        <h1 class="md-toolbar-tools">
+          <span flex>Leads</span>
+          <md-button aria-label="Create Lead" ng-click="createLead();">
+            Create Lead
+            </md-icon>
+          </md-button>
+        </h1> 
+   </div>
+    <div class="row" ng-show="isCreateLead" > 
+       <md-card>
+        <div class="row"> 
+           <div layout layout-sm="column">
+            <md-text-float label="First Name" ng-model="lead.firstName"> </md-text-float>
+            <md-text-float label="Last Name" ng-model="lead.lastName" > </md-text-float>
+            </div>
+        </div>
+         <div class="row"> 
+           <div layout layout-sm="column">
+            <md-text-float label="Email" ng-model="lead.email"> </md-text-float>
+            <md-text-float label="Phone" ng-model="lead.phone" > </md-text-float>
+            </div>
+        </div>
+         <div class="row"> 
+            <md-text-float label="Tags"  ng-model="campaign.tags" > </md-text-float>
+        </div> 
+        <md-toolbar class="md-theme-light">  
+        <h1 class="md-toolbar-tools"> 
+           <span> <a ng-show="!isStatusExpand" ng-click="isStatusExpand = true" class="clickable">+</a>
+           <a ng-show="isStatusExpand" ng-click="isStatusExpand = false"  class="clickable">-</a> Status</span>
+        </h1>
+      </md-toolbar>   
+      <md-contnet ng-show="!isStatusExpand" style="padding:10px">
+      <md-item-content>
+         <div class="row">  
+               <div layout layout-sm="column">
+                  You can add lead status information later.
+              </div>
+          </div>  
+          </md-item-content> 
+      </md-contnet>
+      <md-content ng-show="isStatusExpand" >
+            <div class="row"> 
+               <div layout layout-sm="column">
+                <md-text-float label="First Name" ng-model="lead.firstName"> </md-text-float>
+                <md-text-float label="Last Name" ng-model="lead.lastName" > </md-text-float>
+                </div>
+            </div>
+        
+             <div class="row"> 
+               <div layout layout-sm="column">
+                <md-text-float label="Email" ng-model="lead.email"> </md-text-float>
+                <md-text-float label="Phone" ng-model="lead.phone" > </md-text-float>
+                </div>
+            </div>
+           
+          </md-item>
+        </md-list>
+      </md-content>
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+          <span><a ng-show="!isContactExpand" ng-click="isContactExpand = true" class="clickable">+</a>
+           <a ng-show="isContactExpand" ng-click="isContactExpand = false"  class="clickable">-</a> Contact Information</span>
+        </h1>
+      </md-toolbar>
+       <md-contnet ng-show="!isContactExpand" style="padding:10px">
+       <md-item-content>
+         <div class="row">  
+               <div layout layout-sm="column">
+                  You can add lead contat information later.
+              </div>
+          </div>
+           </md-item-content> 
+      </md-contnet> 
+      <md-content ng-show="isContactExpand"  > 
+            <div class="row">  
+               <div layout layout-sm="column">
+                <md-text-float label="Title" ng-model="lead.title"> </md-text-float>
+                <md-text-float label="Company" ng-model="lead.company" > </md-text-float>
+                </div>
+            </div>
+        
+             <div class="row"> 
+               <div layout layout-sm="column">
+                <md-text-float label="Alternate Emaile" ng-model="lead.aemail"> </md-text-float>
+                <md-text-float label="mobile" ng-model="lead.mobile" > </md-text-float>
+                </div>
+            </div>
+            <div class="row"> 
+               <div layout layout-sm="column">
+                <md-text-float label="Address" ng-model="lead.address"> </md-text-float>
+                <md-text-float label="ReferredBy" ng-model="lead.refferedBy" > </md-text-float>
+                </div>
+            </div> 
+          
+          </md-item>
+        </md-list> 
+      </md-content> 
+      <div class="row"> 
+      </div>
+       <div class="row">
+      
+        <md-button class="md-raised md-primary">Create Lead</md-button>
+        OR
+        <md-button md-no-ink class="md-primary" ng-click="isCreateLead = !isCreateLead">Cancel</md-button>
+        </md-card>
+    </div>
+    </md-card>
+    </div>
+    
+    <div class="row">
+<md-card>
+   <md-content style="height: 600px;">
+    <section>
+      <md-subheader class="md-primary">This Week</md-subheader>
+      <md-list layout="column">
+        <md-item ng-repeat="message in messages">
+          <md-item-content>
+            <div class="md-tile-left">
+                <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+            </div>
+            <div class="md-tile-content">
+              <h4>{{message.who}}</h4>
+              <p>
+                {{message.notes}}
+              </p>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </section>
+    <section> 
+      <md-subheader class="md-primary">Next Week</md-subheader>
+      <md-list layout="column">
+        <md-item ng-repeat="message in messages">
+          <md-item-content>
+            <div class="md-tile-left">
+                <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+            </div>
+            <div class="md-tile-content">
+              <h4>{{message.who}}</h4>
+              <p>
+                {{message.notes}}
+              </p>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </section>
+    <section>
+      <md-subheader>Some time later</md-subheader>
+      <md-list layout="column">
+        <md-item ng-repeat="message in messages">
+          <md-item-content>
+            <div class="md-tile-left">
+                <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+            </div>
+            <div class="md-tile-content">
+              <h4>{{message.who}}</h4>
+              <p>
+                {{message.notes}}
+              </p>
+            </div> 
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </section>
+    </md-content>
+    </md-card>
+    </div>
+</div>
+</div>
