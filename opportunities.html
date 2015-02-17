@@ -1,0 +1,278 @@
+<style>
+#leadspage .md-tabs-content .md-tab-content {
+height: auto; 
+}
+#leadspage .progressLineardemoBasicUsage md-progress-linear {
+padding-top: 0px;
+margin-bottom: 1px; } 
+#leadspage .inset {    
+padding-left: 25px; 
+padding-top: 25px; } 
+#leadspage md-toolbar {
+    min-height:34px;
+}
+#leadspage .md-toolbar-tools {
+    height:34px;  
+    min-height:34px;
+}
+</style> 
+
+<div id="leadspage" layout="row" layout-margin layout-fill layout-padding>
+<div  flex="13">
+    <md-card>  
+       <h3> Opportunity Stages</h3>
+     <md-list>
+      <md-item >
+        <md-item-content>
+          <div>
+            <p ng-repeat="status in leadStatuses">
+             <md-checkbox ng-model="status[0]" >
+              {{status[1]}}</md-checkbox> 
+            </p>
+          </div>
+    </md-item-content>
+      </md-item>
+    </md-list>
+    </md-card>   
+   <md-card>  
+      <h3>Global lists</h3>
+      <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+      </p>
+    </md-card> 
+    <md-card>
+      <h3>My Lists</h3>
+      <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+      </p> 
+    </md-card>  
+    <md-card>
+      <h3>Recent Items</h3>
+      <p>
+        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+      </p> 
+</md-card> 
+</div>  
+
+<div flex="80" layout="column"> 
+   <div class="row">
+        <h1 class="md-toolbar-tools">
+          <span flex>Opportunities</span>
+          <md-button aria-label="Create Account" ng-click="showHideCreateContact();">
+           Create Opportunity
+            </md-icon>
+          </md-button>
+        </h1> 
+   </div>
+    <div class="row" ng-show="isCreateOpp"> 
+    
+       <md-card>
+       
+       <md-toolbar class="md-theme-light">  
+        <h1 class="md-toolbar-tools"> 
+           Create Opportunity</span>
+        </h1>
+      </md-toolbar> 
+      
+      
+       <md-content>
+           <div class="row"> 
+           <div layout layout-sm="column">
+            <md-text-float label="Name" ng-model="opp.name" class="long"> </md-text-float>
+            <md-text-float label="Stage" ng-model="opp.stage" class="long"> </md-text-float>
+            </div>
+            
+            <div class="row"> 
+           <div layout layout-sm="column">
+            <md-text-float label="Close Date" ng-model="opp.closedate" class="long"> </md-text-float>
+            <md-text-float label="Probability(%)" ng-model="opp.probability" class="long"> </md-text-float>
+            <md-text-float label="Amount($)" ng-model="opp.amount" class="long"> </md-text-float>
+            <md-text-float label="Discount(%)" ng-model="opp.discount" class="long"> </md-text-float>
+            </div>
+            </div>
+          
+            <div class="row"> 
+            <div layout layout-sm="column">
+            <md-text-float label="Account" ng-model="opp.account" class="long"> </md-text-float>
+            <md-text-float label="Assigned To" ng-model="opp.assignedTo" class="long"> </md-text-float>
+            </div>
+            </div>
+         
+          <div class="row"> 
+            <div layout layout-sm="column">
+            <md-text-float label="Campaign" ng-model="opp.campaign" class="long"> </md-text-float>
+          </div>
+          </div>   
+            
+          
+          <div class="row"> 
+            <div layout layout-sm="column">
+            <md-text-float label="Tags" ng-model="opp.tags" class="long"> </md-text-float>
+          </div>
+          </div>
+          
+          
+          
+          
+        </div>
+        </md-item>
+        </md-list>
+      </md-content>
+      
+      
+        <md-toolbar class="md-theme-light">  
+        <h1 class="md-toolbar-tools"> 
+           <span> <a ng-show="!isStatusExpand" ng-click="isStatusExpand = true" class="clickable">+</a>
+           <a ng-show="isStatusExpand" ng-click="isStatusExpand = false"  class="clickable">-</a>Comment</span>
+        </h1>
+      </md-toolbar>   
+      <md-contnet ng-show="!isStatusExpand" style="padding:10px">
+    
+      </md-contnet>
+     <md-content ng-show="isStatusExpand" >
+            <div class="row"> 
+               <div layout layout-sm="column">
+                  <textarea rows="7" cols="40" ng-model="oppco.mments"></textarea>
+                </div>
+            </div>
+        <div class="row"> </div>
+     
+     </md-content>
+     
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+          <span><a ng-show="!isContactExpand" ng-click="isContactExpand = true" class="clickable">+</a>
+           <a ng-show="isContactExpand" ng-click="isContactExpand = false"  class="clickable">-</a>Permisions</span>
+        </h1>
+      </md-toolbar>
+       <md-contnet ng-show="!isContactExpand" style="padding:10px">
+       <md-item-content>
+         <div class="row">  
+               <div layout layout-sm="column">
+                  
+              </div>
+          </div>
+           </md-item-content> 
+      </md-contnet> 
+      <md-content ng-show="isContactExpand"  > 
+            <div class="row">  
+               <div layout layout-sm="column" class="radioValue">
+              <md-radio-group ng-model="data.group1">
+              <md-radio-button value="value1" aria-label="Label 1">Keep it private, do not share with others</md-radio-button>
+              <md-radio-button value="value2"> Share it with everyone</md-radio-button>
+              <md-radio-button value="value3" aria-label="Label 3">Share it with the following people</md-radio-button>
+              </md-radio-group>  
+            </div>
+            </div>
+          
+          </md-item>
+        </md-list> 
+      </md-content> 
+      <div class="row"> 
+      </div>
+       <div class="row">
+      
+        <md-button md-no-ink class="md-primary" ng-click="createOpp()">Create Opportunity</md-button>
+        OR
+        <md-button md-no-ink class="md-primary" ng-click="isCreateLead = !isCreateLead">Cancel</md-button>
+        </md-card>
+    </div>
+    </md-card>
+    </div>
+    <div class="row">
+         <md-card>  
+          <md-tabs md-selected="selectedIndex">
+            <md-tab a
+            
+            ng-disabled="false" label="Basic Search">
+               <md-list>
+                  <md-item>
+                    <md-item-content>
+                      <div class="md-tile-content">
+                        <h4>Basic Search</h4>
+                        <p>
+                        </p>
+                      </div>content
+                    </md-item-content>
+                  </md-item>
+                </md-list>    
+            </md-tab>
+             <md-tab 
+            ng-disabled="false" label="Advanced Search">
+               <md-list>
+                  <md-item>
+                    <md-item-content>
+                      <div class="md-tile-content">
+                        <h4>Advanced Search</h4>
+                        <p>
+                        </p>
+                      </div>
+                    </md-item-content>
+                  </md-item>
+                </md-list>    
+            </md-tab>
+          </md-tabs>
+        </md-card>   
+    </div>
+    <div class="row">
+<md-card>
+   <md-content style="height: 600px;">
+    <section>
+      <md-subheader class="md-primary">This Week</md-subheader>
+      <md-list layout="column">
+        <md-item ng-repeat="message in messages">
+          <md-item-content>
+            <div class="md-tile-left">
+                <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+            </div>
+            <div class="md-tile-content">
+              <h4>{{message.who}}</h4>
+              <p>
+                {{message.notes}}
+              </p>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </section>
+    <section> 
+      <md-subheader class="md-primary">Next Week</md-subheader>
+      <md-list layout="column">
+        <md-item ng-repeat="message in messages">
+          <md-item-content>
+            <div class="md-tile-left">
+                <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+            </div>
+            <div class="md-tile-content">
+              <h4>{{message.who}}</h4>
+              <p>
+                {{message.notes}}
+              </p>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </section>
+    <section>
+      <md-subheader>Some time later</md-subheader>
+      <md-list layout="column">
+        <md-item ng-repeat="message in messages">
+          <md-item-content>
+            <div class="md-tile-left">
+                <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+            </div>
+            <div class="md-tile-content">
+              <h4>{{message.who}}</h4>
+              <p>
+                {{message.notes}}
+              </p>
+            </div> 
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </section>
+    </md-content>
+    </md-card>
+    </div>
+</div>
+</div>
