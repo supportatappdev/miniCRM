@@ -1,0 +1,29 @@
+
+var crm = angular.module('crm', ['ngMaterial','ui.router','ngRoute','ngResource']);
+crm.config(function ($routeProvider) {
+	$routeProvider
+	.when('/tasklist',{
+	    templateUrl: 'tasks.html',
+		controller: 'TaskCtrl'
+	})
+	.when('/leadslist',{
+	    templateUrl: 'leads.html',
+		controller: 'LeadsCtrl'
+	}).when('/dblist',{
+	    templateUrl: 'dashboard.html',
+		controller: 'DBCtrl'
+	}).when('/rsclist',{
+	    templateUrl: 'resource.html',
+		controller: 'RscCtrl'
+	}).when("/campaignlist",{
+	    templateUrl: 'campaigns.html',
+		controller: 'CampaignCtrl'
+	}).when("/acctlist",{ 
+	    templateUrl: 'account.html',
+		controller: 'AccountsCtrl'
+	}).when("/contactlist",{ 
+	    templateUrl: 'contact.html',
+		controller: 'ContactCtrl'
+	});
+});
+         
