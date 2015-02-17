@@ -1,0 +1,111 @@
+<style>
+    .face {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 48px;
+  margin: 16px; }
+</style>
+<div layout="row" layout-margin layout-fill layout-padding>
+<div  flex="33">
+<md-content >
+<md-card>  
+  <h3>Global lists</h3>
+  <p>
+    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+  </p>
+</md-card> 
+<md-card>
+  <h3>My Lists</h3>
+  <p>
+    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+  </p> 
+</md-card> 
+<md-card>
+  <h3>Recent Items</h3>
+  <p>
+    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+  </p> 
+</md-card>
+</md-content> 
+</div>
+<div flex="60">
+<md-content layout="column" flex layout-fill>
+    <md-card>
+       <md-content style="height: 600px;">
+        <section>
+          <md-subheader class="md-primary">My Tasks</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="message in messages">
+              <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h4>{{message.who}}</h4>
+                  <p>
+                    {{message.notes}}
+                  </p>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section>
+        <section> 
+          <md-subheader class="md-primary">My Opportunities</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="message in messages">
+              <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h4>{{message.who}}</h4>
+                  <p>
+                    {{message.notes}}
+                  </p>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section>
+        <section>
+          <md-subheader>My Accounts</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="message in messages">
+              <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h4>{{message.who}}</h4>
+                  <p>
+                    {{message.notes}}
+                  </p>
+                </div> 
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section>
+        <section>
+          <md-subheader class="md-accent">Recent Activities</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="message in messages">
+              <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h4>{{message.who}}</h4>
+                  <p>
+                    {{message.notes}}
+                  </p>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section>
+        </md-content>
+    </md-card>
+</md-content>
+</div>
+</div>
