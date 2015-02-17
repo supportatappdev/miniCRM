@@ -1,0 +1,151 @@
+<style>
+#campaignpage .md-tabs-content .md-tab-content {
+    height: auto; 
+}
+#campaignpage .progressLineardemoBasicUsage md-progress-linear {
+  padding-top: 0px;
+  margin-bottom: 1px; } 
+ #campaignpage .inset {
+  padding-left: 25px;
+  padding-top: 25px; }
+</style>  
+<div id="campaignpage" layout="row" layout-margin layout-fill layout-padding>
+    <div  flex="13">
+        <md-card>  
+           <h3>Campaign statuses</h3>
+         <md-list>
+          <md-item >
+            <md-item-content>
+              <div > 
+                <p ng-repeat="status in campStatuses">
+                 <md-checkbox ng-model="data.cb1" >
+                  {{status}}</md-checkbox> 
+                </p>
+              </div>
+        </md-item-content>
+          </md-item>
+        </md-list>
+        </md-card>   
+       <md-card>  
+          <h3>Global lists</h3>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+          </p>
+        </md-card> 
+        <md-card>
+          <h3>My Lists</h3>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+          </p> 
+        </md-card>  
+        <md-card>
+          <h3>Recent Items</h3>
+          <p>
+            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+          </p> 
+    </md-card> 
+    </div>  
+    <div flex="80" layout="column"> 
+       <div class="row">
+            <h1 class="md-toolbar-tools">
+              <span flex>Campaigns</span>
+              <md-button aria-label="Create Task" ng-click="createTask();">
+                Create Campaign
+                </md-icon>
+              </md-button>
+            </h1> 
+       </div>
+        <div class="row" ng-show="isCreateTask" > 
+           <!-- <md-subheader class="md-primary">Create Campaign</md-subheader>
+           -->
+           <md-card>
+           <div class="row">
+            <md-text-float label="Name" ng-model="campaign.name" class="long"></md-text-float>
+            </div>
+            <div class="row"> 
+               <div layout layout-sm="column">
+                <md-text-float label="Start Date" ng-model="campaign.sd"> </md-text-float>
+                <md-text-float label="End Date" ng-model="campaign.ed" > </md-text-float>
+                <md-text-float label="Status" ng-model="campaign.status" > </md-text-float>
+                </div>
+            </div>
+           
+             <div class="row"> 
+                <md-text-float  label="Comments" ng-model="campaign.comments"  > </md-text-float>
+            </div>
+             <div class="row"> 
+                <md-text-float label="Objectivies"  ng-model="campaign.objectivies" > </md-text-float>
+            </div>
+             <div class="row"> 
+                <md-text-float label="Permissions"  ng-model="campaign.permissions" > </md-text-float>
+            </div>
+           <div class="row">
+          
+            <md-button class="md-raised md-primary">Create Campaign</md-button>
+            OR
+            <md-button md-no-ink class="md-primary" ng-click="isCreateTask = false">Cancel</md-button>
+            </md-card>
+        </div>
+        </div>
+        <div class="row">
+    <md-card>
+       <md-content style="height: 600px;">
+        <section>
+          <md-subheader class="md-primary">This Week</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="message in messages">
+              <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h4>{{message.who}}</h4>
+                  <p>
+                    {{message.notes}}
+                  </p>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section>
+        <section> 
+          <md-subheader class="md-primary">Next Week</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="message in messages">
+              <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h4>{{message.who}}</h4>
+                  <p>
+                    {{message.notes}}
+                  </p>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section>
+        <section>
+          <md-subheader>Some time later</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="message in messages">
+              <md-item-content>
+                <div class="md-tile-left">
+                    <img ng-src="{{face}}" class="face" alt="{{message.who}}">
+                </div>
+                <div class="md-tile-content">
+                  <h4>{{message.who}}</h4>
+                  <p>
+                    {{message.notes}}
+                  </p>
+                </div> 
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section>
+        </md-content>
+        </md-card>
+        </div>
+    </div>
+</div>
